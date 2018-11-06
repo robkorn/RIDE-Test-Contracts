@@ -1,0 +1,9 @@
+let a1 = base58'EoEQ5Svo2iA2tSBVZH79KRpbsHMrouef3546rdvJeENT'
+let a2 = base58'DQPMWVVAt3qY99TuT9uDpfQTB6FHxDLrpDWcjmkUJcXh'
+let a3 = base58'2Jmm29bvuVcDKtmChwkN4Ewvp8evRunfQtsWbkbpkhz9'
+
+let a1signed = if (sigVerify(tx.bodyBytes, tx.proofs[0], a1)) then 1 else 0
+let a2signed = if (sigVerify(tx.bodyBytes, tx.proofs[1], a2)) then 1 else 0
+let a3signed = if (sigVerify(tx.bodyBytes, tx.proofs[2], a3)) then 1 else 0
+
+a1signed + a2signed + a3signed >= 2
